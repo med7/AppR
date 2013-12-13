@@ -1,0 +1,45 @@
+Med\AdBundle\Entity\annonces:
+    type:  entity
+    table: Med_annonce
+    fields:
+       id:
+           type: integer
+           id: true
+           generator:
+               strategy: AUTO
+       categorie:
+           type: string
+       titre:
+           type: string
+           length: 255
+       auteur:
+           type: string
+       editeur:
+           type: string
+       annee:
+           type: integer
+       etat:
+           type: string
+       points:
+           type: integer
+       nbr_pages:
+           type: integer
+       description:
+           type: string
+           length: 700
+       capture:
+           type: string
+    manyToOne:
+          user:
+              targetEntity: Med\UserBundle\Entity\user
+              inversedBy: annonces
+              joinColumn:
+                  name: user_id
+                  referencedColumnName: id
+    manyToOne:
+          ville:
+              targetEntity: Ville
+              inversedBy: annonces
+              joinColumn:
+                  name: ville_id
+                  referencedColumnName: id

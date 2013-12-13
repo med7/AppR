@@ -1,0 +1,40 @@
+Med\UserBundle\Entity\user:
+    type:  entity
+    table: fos_user
+    fields:
+       id:
+           type: integer
+           id: true
+           generator:
+               strategy: AUTO
+       avatar:
+           type: string
+       civilite:
+           type: string
+       nom:
+           type: string
+       prenom:
+           type: string
+       adresse:
+           type: string
+           length: 255
+       code_postal:
+           type: integer
+       telephone:
+           type: string
+       region:
+           type: string
+       centre_interet:
+           type: string
+           length: 700
+    oneToMany:
+      Annonces:
+            targetEntity: Med\AdBundle\Entity\annonces
+            mappedBy: user
+    manyToOne:
+          ville:
+              targetEntity: Med\AdBundle\Entity\ville
+              inversedBy: user
+              joinColumn:
+                  name: ville_id
+                  referencedColumnName: id

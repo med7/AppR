@@ -1,0 +1,19 @@
+Med\AdBundle\Entity\ville:
+    type:  entity
+    table: Med_ville
+    fields:
+       id:
+           type: integer
+           id: true
+           generator:
+               strategy: AUTO
+       nom:
+           type: string
+       longitude:
+           type: float
+       latitude:
+           type: float
+    oneToMany:
+      Annonces:
+            targetEntity: annonces
+            mappedBy: ville

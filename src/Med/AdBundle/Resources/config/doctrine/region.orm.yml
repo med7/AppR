@@ -1,0 +1,15 @@
+Med\AdBundle\Entity\region:
+    type:  entity
+    table: Med_region
+    fields:
+       id:
+           type: integer
+           id: true
+           generator:
+               strategy: AUTO
+       nom:
+           type: string
+    oneToMany:
+      Ville:
+            targetEntity: ville
+            mappedBy: region
